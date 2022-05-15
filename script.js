@@ -1,4 +1,5 @@
-const hiraganaSigns = ['あ', 'い', 'う', 'え', 'お'    ,'か', 'き', 'く', 'け', 'こ', 'きゃ', 'きゅ', 'きょ',
+
+let hiraganaSigns = ['あ', 'い', 'う', 'え', 'お'    ,'か', 'き', 'く', 'け', 'こ', 'きゃ', 'きゅ', 'きょ',
     'さ', 'し', 'す', 'せ', 'そ', 'しゃ', 'しゅ', 'しょ',
     'た', 'ち', 'つ', 'て', 'と', 'ちゃ', 'ちゅ', 'ちょ',
     'な', 'に', 'ぬ', 'ね', 'の', 'にゃ', 'にゅ', 'にょ',
@@ -15,7 +16,7 @@ const hiraganaSigns = ['あ', 'い', 'う', 'え', 'お'    ,'か', 'き', 'く'
 
 
 
-const latinSigns=['a', 'i' , 'u'	, 'e'	, 'o',  'ka'	, 'ki'	, 'ku'	, 'ke'	, 'ko'	, 'kya'	, 'kyu'	, 'kyo'
+let latinSigns=['a', 'i' , 'u'	, 'e'	, 'o',  'ka'	, 'ki'	, 'ku'	, 'ke'	, 'ko'	, 'kya'	, 'kyu'	, 'kyo'
 , 'sa'	, 'shi'	, 'su'	, 'se'	, 'so'	, 'sha'	, 'shu'	, 'sho'
 , 'ta'	, 'chi'	, 'tsu'	, 'te'	, 'to'	, 'cha'	, 'chu'	, 'cho'
 , 'na'	, 'ni'	, 'nu'	, 'ne'	, 'no'	, 'nya'	, 'nyu'	, 'nyo'
@@ -30,21 +31,35 @@ const latinSigns=['a', 'i' , 'u'	, 'e'	, 'o',  'ka'	, 'ki'	, 'ku'	, 'ke'	, 'ko'	
 , 'pa'	, 'pi'	, 'pu'	, 'pe'	, 'po'	, 'pya'	, 'pyu'	, 'pyo'
 , 'vu'			
 ]
+const passText = "Correct!";
+const fillText ="here will be feedback"
+
 let chosenHiragana = Math.floor(Math.random() * hiraganaSigns.length)
 console.log(chosenHiragana, hiraganaSigns[chosenHiragana]);
 let chosenLatin =  chosenHiragana
 console.log(chosenLatin, latinSigns[chosenLatin]);
-
-// console.log(text)
+const failText = "Wrong, correct answer was: " + latinSigns[chosenLatin] +" " ;
+let hiragana = document.getElementById('hiraganaContainer')
+hiragana.innerText = `${hiraganaSigns[chosenHiragana]}`
+let myFeedback = document.getElementById('feedback')
+myFeedback.innerText=`${fillText}`
+let text =document.getElementById('userInput').value
 checkOfChoiceCorrecteness=()=>{
-    let text =document.getElementById('userInput').value
+  
     if(text===latinSigns[chosenLatin]){
-        console.log('Correct')
+        myFeedback = document.getElementById('feedback')
+        myFeedback.innerText=`${passText}`
+        console.log(passText)
+        return 'correct'
 
-    }else{
-        console.log("Fail")
+    }else{   
+        myFeedback = document.getElementById('feedback')
+         myFeedback.innerText=`${failText}` 
+          console.log(failText)  
+          return 'fail'     
+
+       
     }
 }
 
-let hiragana = document.getElementById('hiraganaContainer')
-hiragana.innerText = `${hiraganaSigns[chosenHiragana]}`
+

@@ -3,7 +3,6 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hiragana memorizer</title>
     <link rel="stylesheet" href="style.css" />
@@ -15,16 +14,15 @@
         <h1 class="title">Hiragana memorizer</h1>
         <div class="mainContainer">
             <div class="hiraganaContainer" id="hiraganaContainer"></div>
-            <div >
-            <form class="form" onsubmit="return checkOfChoiceCorrecteness()">
+            <form class="form" >
                 <input type="text" class="userInput" id="userInput" minlength="1" maxlength="3">
-                <button type="submit" class="submit" value="Sprawdź">Check!</button>
+                <input type="button" class="submit" onclick="checkOfChoiceCorrecteness()"value="Check" >
             </form>
-        </div>
             <div class="feedback" id="feedback"></div>
         </div>
     </main>
+    <script src="script.js"></script>
 </body>
-<script src="script.js"></script>
+
 
 </html>
