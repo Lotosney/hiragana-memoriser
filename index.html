@@ -12,15 +12,19 @@
 
 <body>
     <main>
-        <h1>Hiragana memorizer</h1>
-
-        <div class="hiraganaContainer" id="hiraganaContainer"></div>
-        <form onsubmit="return checkOfChoiceCorrecteness()">
-        <input type ="text" class="userInput" id="userInput" minlength="1" maxlength="3"> </input>
-        <input type="submit">
-    </form>
+        <h1 class="title">Hiragana memorizer</h1>
+        <div class="mainContainer">
+            <div class="hiraganaContainer" id="hiraganaContainer"></div>
+            <div >
+            <form class="form" onsubmit="return checkOfChoiceCorrecteness()">
+                <input type="text" class="userInput" id="userInput" minlength="1" maxlength="3">
+                <button type="submit" class="submit" value="Sprawdź">Check!</button>
+            </form>
+        </div>
+            <div class="feedback" id="feedback"></div>
+        </div>
     </main>
 </body>
-  <script src="script.js"></script>
+<script src="script.js"></script>
 
 </html>
