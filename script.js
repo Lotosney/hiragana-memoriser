@@ -31,35 +31,52 @@ let latinSigns=['a', 'i' , 'u'	, 'e'	, 'o',  'ka'	, 'ki'	, 'ku'	, 'ke'	, 'ko'	, 
 , 'pa'	, 'pi'	, 'pu'	, 'pe'	, 'po'	, 'pya'	, 'pyu'	, 'pyo'
 , 'vu'			
 ]
-const passText = "Correct!";
-const fillText ="here will be feedback"
+
+
 
 let chosenHiragana = Math.floor(Math.random() * hiraganaSigns.length)
 console.log(chosenHiragana, hiraganaSigns[chosenHiragana]);
 let chosenLatin =  chosenHiragana
 console.log(chosenLatin, latinSigns[chosenLatin]);
-const failText = "Wrong, correct answer was: " + latinSigns[chosenLatin] +" " ;
+
+let myFeedback = document.getElementById('feedback')
+let text =document.getElementById('userInput').value
+
 let hiragana = document.getElementById('hiraganaContainer')
 hiragana.innerText = `${hiraganaSigns[chosenHiragana]}`
-let myFeedback = document.getElementById('feedback')
-myFeedback.innerText=`${fillText}`
-let text =document.getElementById('userInput').value
+
+
+
 checkOfChoiceCorrecteness=()=>{
-  
-    if(text===latinSigns[chosenLatin]){
+    let text =document.getElementById('userInput').value
+    if(text.trim()==latinSigns[chosenLatin]){
         myFeedback = document.getElementById('feedback')
+        let passText = "Correct!";
         myFeedback.innerText=`${passText}`
+        document.getElementById('feedback').className = "color-green";
         console.log(passText)
-        return 'correct'
+        chosenHiragana = Math.floor(Math.random() * hiraganaSigns.length)
+        chosenLatin = chosenHiragana
+        console.log("2 przy pass" +chosenLatin, latinSigns[chosenLatin], chosenHiragana, hiraganaSigns[chosenHiragana])
+        hiragana = document.getElementById('hiraganaContainer')
+        hiragana.innerText = `${hiraganaSigns[chosenHiragana]}`
 
     }else{   
         myFeedback = document.getElementById('feedback')
-         myFeedback.innerText=`${failText}` 
-          console.log(failText)  
-          return 'fail'     
-
+        let failText = "Wrong, correct answer was: " + latinSigns[chosenLatin] +" " ;     
+        myFeedback.innerText=`${failText}` 
+        myFeedback.className = 'color-red'
+        console.log(failText)  
+        chosenHiragana = Math.floor(Math.random() * hiraganaSigns.length)
+        chosenLatin = chosenHiragana
+        console.log("2 przy fail" +chosenLatin, latinSigns[chosenLatin] ,chosenHiragana,hiraganaSigns[chosenHiragana])
+        hiragana = document.getElementById('hiraganaContainer')
+        hiragana.innerText = `${hiraganaSigns[chosenHiragana]}`
        
     }
 }
+
+
+
 
 
