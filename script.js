@@ -1,4 +1,5 @@
-const hiraganaSigns = ['あ', 'い', 'う', 'え', 'お'    ,'か', 'き', 'く', 'け', 'こ', 'きゃ', 'きゅ', 'きょ',
+
+let hiraganaSigns = ['あ', 'い', 'う', 'え', 'お'    ,'か', 'き', 'く', 'け', 'こ', 'きゃ', 'きゅ', 'きょ',
     'さ', 'し', 'す', 'せ', 'そ', 'しゃ', 'しゅ', 'しょ',
     'た', 'ち', 'つ', 'て', 'と', 'ちゃ', 'ちゅ', 'ちょ',
     'な', 'に', 'ぬ', 'ね', 'の', 'にゃ', 'にゅ', 'にょ',
@@ -15,7 +16,7 @@ const hiraganaSigns = ['あ', 'い', 'う', 'え', 'お'    ,'か', 'き', 'く'
 
 
 
-const latinSigns=['a', 'i' , 'u'	, 'e'	, 'o',  'ka'	, 'ki'	, 'ku'	, 'ke'	, 'ko'	, 'kya'	, 'kyu'	, 'kyo'
+let latinSigns=['a', 'i' , 'u'	, 'e'	, 'o',  'ka'	, 'ki'	, 'ku'	, 'ke'	, 'ko'	, 'kya'	, 'kyu'	, 'kyo'
 , 'sa'	, 'shi'	, 'su'	, 'se'	, 'so'	, 'sha'	, 'shu'	, 'sho'
 , 'ta'	, 'chi'	, 'tsu'	, 'te'	, 'to'	, 'cha'	, 'chu'	, 'cho'
 , 'na'	, 'ni'	, 'nu'	, 'ne'	, 'no'	, 'nya'	, 'nyu'	, 'nyo'
@@ -30,21 +31,52 @@ const latinSigns=['a', 'i' , 'u'	, 'e'	, 'o',  'ka'	, 'ki'	, 'ku'	, 'ke'	, 'ko'	
 , 'pa'	, 'pi'	, 'pu'	, 'pe'	, 'po'	, 'pya'	, 'pyu'	, 'pyo'
 , 'vu'			
 ]
+
+
+
 let chosenHiragana = Math.floor(Math.random() * hiraganaSigns.length)
 console.log(chosenHiragana, hiraganaSigns[chosenHiragana]);
 let chosenLatin =  chosenHiragana
 console.log(chosenLatin, latinSigns[chosenLatin]);
 
-// console.log(text)
-checkOfChoiceCorrecteness=()=>{
-    let text =document.getElementById('userInput').value
-    if(text===latinSigns[chosenLatin]){
-        console.log('Correct')
-
-    }else{
-        console.log("Fail")
-    }
-}
+let myFeedback = document.getElementById('feedback')
+let text =document.getElementById('userInput').value
 
 let hiragana = document.getElementById('hiraganaContainer')
 hiragana.innerText = `${hiraganaSigns[chosenHiragana]}`
+
+
+
+checkOfChoiceCorrecteness=()=>{
+    let text =document.getElementById('userInput').value
+    if(text.trim()==latinSigns[chosenLatin]){
+        myFeedback = document.getElementById('feedback')
+        let passText = "Correct!";
+        myFeedback.innerText=`${passText}`
+        document.getElementById('feedback').className = "color-green";
+        console.log(passText)
+        chosenHiragana = Math.floor(Math.random() * hiraganaSigns.length)
+        chosenLatin = chosenHiragana
+        console.log("2 przy pass" +chosenLatin, latinSigns[chosenLatin], chosenHiragana, hiraganaSigns[chosenHiragana])
+        hiragana = document.getElementById('hiraganaContainer')
+        hiragana.innerText = `${hiraganaSigns[chosenHiragana]}`
+
+    }else{   
+        myFeedback = document.getElementById('feedback')
+        let failText = "Wrong, correct answer was: " + latinSigns[chosenLatin] +" " ;     
+        myFeedback.innerText=`${failText}` 
+        myFeedback.className = 'color-red'
+        console.log(failText)  
+        chosenHiragana = Math.floor(Math.random() * hiraganaSigns.length)
+        chosenLatin = chosenHiragana
+        console.log("2 przy fail" +chosenLatin, latinSigns[chosenLatin] ,chosenHiragana,hiraganaSigns[chosenHiragana])
+        hiragana = document.getElementById('hiraganaContainer')
+        hiragana.innerText = `${hiraganaSigns[chosenHiragana]}`
+       
+    }
+}
+
+
+
+
+

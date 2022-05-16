@@ -1,0 +1,54 @@
+body {
+    background-image: url(photos/pexels-belle-co-402028.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+
+
+}
+
+@font-face {
+    font-family: Electroharmonix;
+    src: url(fonts/electroharmonix.ttf);
+}
+
+.title {
+    font-family: Electroharmonix;
+    color: rgb(255, 0, 0);
+    opacity: 0.5;
+    margin-top: 20%;
+    text-align: center;
+
+}
+.mainContainer{
+    background-color:rgba(8, 13, 17, 0.411);
+    color: rgb(255, 255, 255);
+    display:flex;
+    text-align: center;
+    flex-direction: column;
+    margin-inline: 20%;
+  ;
+}
+.hiraganaContainer {
+    font-size: 400%;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items:center
+}
+.userInput{
+    width:30%;
+    
+}
+.submit{
+    margin-inline: 25%;
+    font-family:Electroharmonix;
+}
+.color-red{
+    color: rgb(255, 0, 0);
+}
+.color-green{
+    color: rgb(4, 211, 49)
+}
