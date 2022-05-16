@@ -41,9 +41,9 @@ let negativeScoreNumber = document.getElementById('negativeScoreNumber')
 negativeScoreNumber.innerText = `${negScoreNum}`
 
 let chosenHiragana = Math.floor(Math.random() * hiraganaSigns.length)
-console.log(chosenHiragana, hiraganaSigns[chosenHiragana]);
+
 let chosenLatin =  chosenHiragana
-console.log(chosenLatin, latinSigns[chosenLatin]);
+
 
 let myFeedback = document.getElementById('feedback')
 let text =document.getElementById('userInput').value
@@ -60,13 +60,10 @@ checkOfChoiceCorrecteness=()=>{
         let passText = "Correct!";
         myFeedback.innerText=`${passText}`
         document.getElementById('feedback').className = "color-green";
-        console.log(passText)
         chosenHiragana = Math.floor(Math.random() * hiraganaSigns.length)
         chosenLatin = chosenHiragana
-        console.log("2 przy pass" +chosenLatin, latinSigns[chosenLatin], chosenHiragana, hiraganaSigns[chosenHiragana])
         hiragana = document.getElementById('hiraganaContainer')
         hiragana.innerText = `${hiraganaSigns[chosenHiragana]}`
-
         scoreNum = scoreNum + 1
         positiveScoreNumber.innerText = `${scoreNum}`
      
@@ -76,13 +73,10 @@ checkOfChoiceCorrecteness=()=>{
         let failText = "Wrong, correct answer was: " + latinSigns[chosenLatin] +" " ;     
         myFeedback.innerText=`${failText}` 
         myFeedback.className = 'color-red'
-        console.log(failText)  
         chosenHiragana = Math.floor(Math.random() * hiraganaSigns.length)
         chosenLatin = chosenHiragana
-        console.log("2 przy fail" +chosenLatin, latinSigns[chosenLatin] ,chosenHiragana,hiraganaSigns[chosenHiragana])
         hiragana = document.getElementById('hiraganaContainer')
         hiragana.innerText = `${hiraganaSigns[chosenHiragana]}`
-
         negScoreNum = negScoreNum + 1
         negativeScoreNumber.innerText = `${negScoreNum}`
        
