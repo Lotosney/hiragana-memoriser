@@ -32,7 +32,13 @@ let latinSigns=['a', 'i' , 'u'	, 'e'	, 'o',  'ka'	, 'ki'	, 'ku'	, 'ke'	, 'ko'	, 
 , 'vu'			
 ]
 
+let scoreNum = 0;
+let negScoreNum = 0;
 
+let positiveScoreNumber = document.getElementById('positiveScoreNumber')
+positiveScoreNumber.innerText = `${scoreNum}`
+let negativeScoreNumber = document.getElementById('negativeScoreNumber')
+negativeScoreNumber.innerText = `${negScoreNum}`
 
 let chosenHiragana = Math.floor(Math.random() * hiraganaSigns.length)
 console.log(chosenHiragana, hiraganaSigns[chosenHiragana]);
@@ -61,6 +67,10 @@ checkOfChoiceCorrecteness=()=>{
         hiragana = document.getElementById('hiraganaContainer')
         hiragana.innerText = `${hiraganaSigns[chosenHiragana]}`
 
+        scoreNum = scoreNum + 1
+        positiveScoreNumber.innerText = `${scoreNum}`
+     
+
     }else{   
         myFeedback = document.getElementById('feedback')
         let failText = "Wrong, correct answer was: " + latinSigns[chosenLatin] +" " ;     
@@ -72,6 +82,9 @@ checkOfChoiceCorrecteness=()=>{
         console.log("2 przy fail" +chosenLatin, latinSigns[chosenLatin] ,chosenHiragana,hiraganaSigns[chosenHiragana])
         hiragana = document.getElementById('hiraganaContainer')
         hiragana.innerText = `${hiraganaSigns[chosenHiragana]}`
+
+        negScoreNum = negScoreNum + 1
+        negativeScoreNumber.innerText = `${negScoreNum}`
        
     }
 }

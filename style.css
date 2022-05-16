@@ -28,7 +28,7 @@ body {
     text-align: center;
     flex-direction: column;
     margin-inline: 20%;
-  ;
+  
 }
 .hiraganaContainer {
     font-size: 400%;
@@ -40,15 +40,25 @@ body {
 }
 .userInput{
     width:30%;
+    font-family: Electroharmonix;
     
 }
 .submit{
     margin-inline: 25%;
     font-family:Electroharmonix;
 }
+
 .color-red{
     color: rgb(255, 0, 0);
+    font-family:Electroharmonix;
 }
 .color-green{
-    color: rgb(4, 211, 49)
+    color: rgb(4, 211, 49);
+    font-family:Electroharmonix;
+}
+h4{
+    font-family: Electroharmonix;
+}
+.negativeScore{
+    margin-bottom: 1.33em;
 }
