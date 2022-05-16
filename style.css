@@ -46,3 +46,9 @@ body {
     margin-inline: 25%;
     font-family:Electroharmonix;
 }
+.color-red{
+    color: rgb(255, 0, 0);
+}
+.color-green{
+    color: rgb(4, 211, 49)
+}
